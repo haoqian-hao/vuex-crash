@@ -1,17 +1,27 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+
+  
+
+
+    <v-container style="max-width:auto">
+
+  <div id="app">    <AddTask/>
+    <Tasks/>
+    </div>
+   </v-container>
+
 </template>
 
+
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Tasks from "./components/Tasks" 
+import AddTask from "./components/AddTask"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Tasks,
+    AddTask,
   }
 }
 </script>

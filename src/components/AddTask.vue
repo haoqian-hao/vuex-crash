@@ -1,0 +1,76 @@
+<template>
+    <v-row>
+        <v-text-field
+        v-model="title"
+        label="What are you working on?"
+        solo
+        @keydown.enter="onSubmit"
+        >
+        </v-text-field>
+         <!-- <template> -->
+        <!-- <v-fade-transition> -->
+          <v-btn
+            v-if="title"
+            @click="onSubmit"
+          >
+            add_circle
+          </v-btn>
+            
+
+        <!-- </v-fade-transition> -->
+      <!-- </template> -->
+
+
+    </v-row>
+</template>
+
+<!--  <template>
+  <div>
+    <h3>Add Todo</h3>
+    <div class="add">
+      <form @submit="onSubmit">
+        <input type="text" v-model="title" placeholder="Add Task...">
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+</template> -->
+
+
+
+<script>
+
+import { mapActions, mapGetters } from "vuex";
+export default {
+    name: "AddTask",
+    data() {
+        return {
+        title: ""
+        };
+    },
+    computed: mapGetters(['checkUniqueTask']),
+  
+    methods: {
+        ...mapActions(["addTask"]),
+        onSubmit(e) {
+     
+        e.preventDefault();
+
+        if (this.title === '') {
+            alert("please type task's title")
+        } else if (this.checkUniqueTask(this.title)) {
+            alert("duplicated task existing")
+        } else {
+            this.addTask(this.title);
+            this.title = '';
+        }
+    }
+}, 
+  
+};
+</script>
+
+
+<style >
+
+</style>
