@@ -4,17 +4,10 @@
       v-model="drawer"
       app
     >
-
-      <v-list-item>
-        <v-list-item-content>
-          <router-link to="/">Home</router-link>
-        </v-list-item-content>
-      </v-list-item>
-      <v-list-item>
-        <v-list-item-content>
-      <router-link to="/about">About</router-link>
-        </v-list-item-content>
-      </v-list-item>
+      <ul>
+        <li><router-link to="/">Home</router-link></li>
+        <li><router-link to="/about">About</router-link></li>
+      </ul>
 
     </v-navigation-drawer>
 
@@ -47,5 +40,27 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
 }
 </style>

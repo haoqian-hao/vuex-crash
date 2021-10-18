@@ -35,29 +35,29 @@
 
 import { mapActions, mapGetters } from "vuex";
 export default {
-    name: "AddTask",
-    data() {
-        return {
-        title: ""
-        };
-    },
-    computed: mapGetters(['checkUniqueTask']),
-  
-    methods: {
-        ...mapActions(["addTask"]),
-        onSubmit(e) {
-     
-        e.preventDefault();
+  name: "AddTask",
+  data() {
+      return {
+      title: ""
+      };
+  },
+  computed: mapGetters(['checkUniqueTask']),
 
-        if (this.title === '') {
-            alert("please type task's title")
-        } else if (this.checkUniqueTask(this.title)) {
-            alert("duplicated task existing")
-        } else {
-            this.addTask(this.title);
-            this.title = '';
-        }
+  methods: {
+    ...mapActions(["addTask"]),
+    onSubmit(e) {
+  
+    e.preventDefault();
+
+    if (this.title === '') {
+        alert("please type task's title")
+    } else if (this.checkUniqueTask(this.title)) {
+        alert("duplicated task existing")
+    } else {
+        this.addTask(this.title);
+        this.title = '';
     }
+  }
 }, 
   
 };
