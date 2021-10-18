@@ -1,28 +1,41 @@
 <template>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
 
-  
+      <v-list-item>
+        <v-list-item-content>
+          <router-link to="/">Home</router-link>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+      <router-link to="/about">About</router-link>
+        </v-list-item-content>
+      </v-list-item>
 
+    </v-navigation-drawer>
 
-    <v-container style="max-width:auto">
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-  <div id="app">    <AddTask/>
-    <Tasks/>
-    </div>
-   </v-container>
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-app-bar>
 
+    <v-main>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 
 <script>
-import Tasks from "./components/Tasks" 
-import AddTask from "./components/AddTask"
 
 export default {
   name: 'App',
-  components: {
-    Tasks,
-    AddTask,
-  }
+  data: () => ({ drawer: null }),
 }
 </script>
 

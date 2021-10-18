@@ -9,7 +9,7 @@ const getters={
 
 
     getTasklength: (state) => {
-        console.log(state.tasks) 
+        // console.log(state.tasks) 
         // return state.tasks.length;
         return state.tasks.length;
     },
@@ -34,7 +34,7 @@ const actions = {
         const response = await axios.get(
             "https://jsonplaceholder.typicode.com/todos"
         );
-        console.log(response.data)
+        // console.log(response.data)
         commit('setTasks', response.data )
     },
 

@@ -1,26 +1,19 @@
 <template>
-    <v-row>
-        <v-text-field
-        v-model="title"
-        label="What are you working on?"
-        solo
-        @keydown.enter="onSubmit"
-        >
-        </v-text-field>
-         <!-- <template> -->
-        <!-- <v-fade-transition> -->
-          <v-btn
-            v-if="title"
-            @click="onSubmit"
-          >
-            add_circle
-          </v-btn>
-            
-
-        <!-- </v-fade-transition> -->
-      <!-- </template> -->
-
-
+    <v-row class="mt-3">
+      <v-text-field
+      v-model="title"
+      label="What are you working on?"
+      solo
+      @keydown.enter="onSubmit"
+      >
+      </v-text-field>
+      <v-btn
+        v-if="title"
+        @click="onSubmit"
+        margin="centre"
+      >
+        Add Task
+      </v-btn>
     </v-row>
 </template>
 

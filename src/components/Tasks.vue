@@ -1,7 +1,7 @@
 <template>
 
     <div>
-    <h1 class="text-h4 success--text pl-4">
+    <h1 class="success--text">
       Tasks:&nbsp;
       <v-fade-transition leave-absolute>
         <span :key="`tasks-${getTasklength}`">
@@ -13,7 +13,7 @@
     <v-divider class="mt-4"></v-divider>
 
     <v-row
-        class="my-1"  
+      class="my-1"  
     >
         <v-flex class="mx-4 md2 success--text text--darken-2">
             Completed:{{getCompleted}}
@@ -24,47 +24,41 @@
     </v-row>
 
     <v-divider class="pt-10"></v-divider>
-    
-    <!-- <v-card v-if="getTasklength > 0" class="pt-10">
-      <v-slide-y-transition
-        class="py-0"
-        group
-        tag="v-list"
-      > -->
-        <template v-for="(task, i) in allTasks">
-          <v-divider
-            v-if="i !== 0"
-            :key="`${i}-divider`"
-          ></v-divider>
 
-          <v-list-item :key="`${i}-${task.title}`">
-            <v-list-item-action>
-              <v-checkbox
-                v-model="task.completed"
-                :color="task.completed && 'grey' || 'primary'"
-              >
-                <template v-slot:label>
-                  <div
-                    :class="task.completed && 'grey--text' || 'primary--text'"
-                    class="ml-4"
-                    v-text="task.title"
-                  ></div>
-                </template>
-              </v-checkbox>
-            </v-list-item-action>
+    <template v-for="(task, i) in allTasks">
+      <v-divider
+        v-if="i !== 0"
+        :key="`${i}-divider`"
+      ></v-divider>
 
-            <v-spacer></v-spacer>
+      <v-list-item :key="`${i}-${task.title}`">
+        <v-list-item-action>
+          <v-checkbox
+            v-model="task.completed"
+            :color="task.completed && 'grey' || 'primary'"
+          >
+            <template v-slot:label>
+              <div
+                :class="task.completed && 'grey--text' || 'primary--text'"
+                class="ml-4"
+                v-text="task.title"
+              ></div>
+            </template>
+          </v-checkbox>
+        </v-list-item-action>
 
-            <v-scroll-x-transition>
-              <v-icon
-                v-if="task.completed"
-                color="success"
-              >
-                mdi-check
-              </v-icon>
-            </v-scroll-x-transition>
-          </v-list-item>
-        </template>
+        <v-spacer></v-spacer>
+
+        <v-scroll-x-transition>
+          <v-icon
+            v-if="task.completed"
+            color="success"
+          >
+            mdi-check
+          </v-icon>
+        </v-scroll-x-transition>
+      </v-list-item>
+    </template>
       <!-- </v-slide-y-transition>
     </v-card> -->
     <!-- <div class="tasks">
@@ -122,6 +116,7 @@ export default {
 .success--text {
     color: #4caf50 !important;
     caret-color: #4caf50 !important;
+    padding-block-start: 0%;
 }
 
 .my-1 {
