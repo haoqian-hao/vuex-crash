@@ -55,6 +55,7 @@ const mutations = {
 
 
 export default {
+    namesapced:true, 
     state,
     getters,
     actions,
