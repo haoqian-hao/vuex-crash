@@ -7,6 +7,7 @@
       <ul>
         <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/about">About</router-link></li>
+        <li><router-link to="/echart">echart</router-link></li>
       </ul>
 
     </v-navigation-drawer>

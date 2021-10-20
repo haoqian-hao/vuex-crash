@@ -1,5 +1,5 @@
 <template>
-  <v-chart class="chart" :option="option" />
+  <v-chart class="chart" :option="option" autoresize/>
 </template>
 
 <script>
@@ -22,7 +22,7 @@ use([
 ]);
 
 export default {
-  name: "HelloWorld",
+  name: "About",
   components: {
     VChart
   },
@@ -81,7 +81,7 @@ export default {
 
 <style scoped>
 .chart {
-  height: 100vh;
+  height: 700;
 }
 </style>
 

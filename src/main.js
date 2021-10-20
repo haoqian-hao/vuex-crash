@@ -5,12 +5,14 @@ import vuetify from './plugins/vuetify'
 import VueRouter from 'vue-router';
 import Home from './views/Home'
 import About from './views/About'
+import Echartk from './views/Echartk'
 
 Vue.use(VueRouter); 
 
 const routes = [
   {path: '/', component:Home}, 
-  {path: '/about', component: About}
+  {path: '/about', component: About},
+  {path: '/echart', component: Echartk}
 ]
 
 const router = new VueRouter({
