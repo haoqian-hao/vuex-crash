@@ -86,11 +86,11 @@ export default {
     
     name: 'Tasks',
     methods: {
-        ...mapActions(['fetchTasks', 'removeTask']),
+      ...mapActions('tasks', ['fetchTasks', 'removeTask']),
 
     },
 
-    computed: {...mapGetters(['allTasks', 'getTasklength', 'getCompleted', 'getRemaining', 'getProgress'])},
+    computed: {...mapGetters('tasks', ['allTasks', 'getTasklength', 'getCompleted', 'getRemaining', 'getProgress'])},
     created() {
       this.fetchTasks();
     }
