@@ -6,13 +6,17 @@ import VueRouter from 'vue-router';
 import Home from './views/Home'
 import About from './views/About'
 import Echartk from './views/Echartk'
+import Reuse from './views/Reuse'
+
 
 Vue.use(VueRouter); 
 
 const routes = [
   {path: '/', component:Home}, 
   {path: '/about', component: About},
-  {path: '/echart', component: Echartk}
+  {path: '/echart', component: Echartk},
+  {path: '/Reuse', component: Reuse}
+
 ]
 
 const router = new VueRouter({
