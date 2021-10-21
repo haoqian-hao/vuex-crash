@@ -2,7 +2,7 @@
     <div>
         <v-container>
             <v-row>
-            <template v-for="n in 2">
+            <template v-for="n in data.length">
                 <v-col :key="n">
                 <v-card
                     outlined

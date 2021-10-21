@@ -1,8 +1,5 @@
 <template>
     <v-chart class="chart" :option="lineData" autoresize/>
-    <!-- <div>
-        {{lineData}}
-    </div> -->
 </template>
 
 <script>
