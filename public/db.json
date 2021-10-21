@@ -1,0 +1,47 @@
+{
+    "lineDATA":
+    [
+        {
+        "xAxis": {
+            "type": "category",
+            "boundaryGap": false,
+            "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+        },
+        "yAxis": {
+            "type": "value"
+        },
+        "series": [
+            {
+                "data": [820, 932, 901, 934, 1290, 1330, 1320],
+                "type": "line"
+            },
+            {
+                "data": [100,100,100,100,100,100,100],
+                "type":"line"
+            }
+            ]
+        },
+        {
+            "xAxis": {
+                "type": "category",
+                "boundaryGap": false,
+                "data": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            },
+            "yAxis": {
+                "type": "value"
+            },
+            "series": [
+                {
+                    "data": [820, 932, 934, 1320,  1290, 1330,901],
+                    "type": "line"
+                },
+                {
+                    "data": [100,100,100,100,100,100,100],
+                    "type":"line"
+                }
+                ]
+        }
+    
+    ]
+    
+}
