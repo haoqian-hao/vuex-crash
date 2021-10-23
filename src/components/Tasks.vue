@@ -93,6 +93,16 @@ export default {
     computed: {...mapGetters('tasks', ['allTasks', 'getTasklength', 'getCompleted', 'getRemaining', 'getProgress'])},
     created() {
       this.fetchTasks();
+    },
+    watch: {
+      allTasks : { 
+        handler : function (allTasks) {
+        console.log("variable task changed store to local storage");
+        const taskstolocal = JSON.stringify(allTasks);
+        localStorage.setItem("tasks", taskstolocal);
+        },
+        deep: true
+      }
     }
 }
 </script>

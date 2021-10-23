@@ -30,12 +30,23 @@ const getters={
 
 
 const actions = {
-    async fetchTasks({commit}) {
-        const response = await axios.get(
-            "https://jsonplaceholder.typicode.com/todos"
-        );
-        // console.log(response.data)
-        commit('setTasks', response.data )
+    fetchTasks({commit}) {
+        // console.log(localStorage.getItem("ta"))
+        let tasks = localStorage.getItem("tasks");
+        if (tasks!== null) {
+            console.log("tasks loaded by localstorage")
+            tasks = JSON.parse(tasks);
+            commit('setTasks', tasks)
+        } else {
+            axios.get(
+                "http://localhost:5000/tasks"
+            ).then(
+                response=> {
+                    commit('setTasks', response.data)                    
+                }
+            )
+            // console.log(response.data)
+        }
     },
 
     async addTask({commit}, title) {

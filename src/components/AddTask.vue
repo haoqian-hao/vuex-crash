@@ -41,10 +41,12 @@ export default {
       title: ""
       };
   },
-  computed: mapGetters(['checkUniqueTask']),
+  computed: {
+    ...mapGetters('tasks', ['checkUniqueTask']),
+  },
 
   methods: {
-    ...mapActions(["addTask"]),
+    ...mapActions('tasks', ["addTask"]),
     onSubmit(e) {
   
     e.preventDefault();
