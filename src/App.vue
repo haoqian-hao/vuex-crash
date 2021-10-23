@@ -4,13 +4,24 @@
       v-model="drawer"
       app
     >
-      <ul>
-        <li><router-link to="/">Home</router-link></li>
-        <li><router-link to="/about">About</router-link></li>
-        <li><router-link to="/echart">echart</router-link></li>
-        <li><router-link to="/Reuse">Reuse</router-link></li>
+    <v-list>
+      <v-list-item-group 
+      class="mt-16"> 
+        <v-list-item
+          v-for="(router, i) in routers"
+          :key="i"
+          @click="$router.push(router.path)"
+          active-class="bg-active"
+        >
+          <v-list-item-content>
+            <v-list-item-title class="routertitle" v-text="router.name"></v-list-item-title>
+          </v-list-item-content>
+    
+        </v-list-item>
+      </v-list-item-group> 
 
-      </ul>
+    </v-list>
+
 
     </v-navigation-drawer>
 
@@ -31,11 +42,20 @@
 
 export default {
   name: 'App',
-  data: () => ({ drawer: null }),
+  data: () => ({ 
+    drawer: null,
+    routers : [
+      {path: '/', name: 'Home'},
+      {path: '/about', name: 'About'},
+      {path: '/echart', name: 'Echart'}, 
+      {path: '/Reuse', name : "Reuse"}
+
+    ]
+  }),
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,25 +65,17 @@ export default {
   margin-top: 60px;
 }
 
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
+.list-item-title:hover{
+  background: green;
 }
 
-li a {
-  display: block;
-  color: #000;
-  padding: 8px 16px;
-  text-decoration: none;
+.bg-active {
+  background-color: green;
+}
+.routertitle {
+  font-size: x-large;
+  font-family: "Times New Roman", Times, serif;
+
 }
 
-/* Change the link color on hover */
-li a:hover {
-  background-color: #555;
-  color: white;
-}
 </style>
