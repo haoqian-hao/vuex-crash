@@ -4,7 +4,7 @@
       v-model="drawer"
       app
     >
-    <v-list>
+    <v-list rounded> 
       <v-list-item-group 
       class="mt-16"> 
         <v-list-item
@@ -13,6 +13,9 @@
           @click="$router.push(router.path)"
           active-class="bg-active"
         >
+          <v-list-item-icon>
+            <v-icon>{{router.icon}}</v-icon>
+          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title class="routertitle" v-text="router.name"></v-list-item-title>
           </v-list-item-content>
@@ -45,7 +48,7 @@ export default {
   data: () => ({ 
     drawer: null,
     routers : [
-      {path: '/', name: 'Home'},
+      {path: '/', name: 'Home', icon: 'fas fa-clipboard-list'},
       {path: '/about', name: 'About'},
       {path: '/echart', name: 'Echart'}, 
       {path: '/Reuse', name : "Reuse"}
@@ -70,12 +73,11 @@ export default {
 }
 
 .bg-active {
-  background-color: green;
+  background-color: lightgoldenrodyellow;
 }
 .routertitle {
   font-size: x-large;
   font-family: "Times New Roman", Times, serif;
-
 }
 
 </style>
