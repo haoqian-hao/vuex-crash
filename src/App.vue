@@ -19,21 +19,14 @@
           <v-list-item-content>
             <v-list-item-title class="routertitle" v-text="router.name"></v-list-item-title>
           </v-list-item-content>
-    
         </v-list-item>
       </v-list-item-group> 
-
     </v-list>
-
-
     </v-navigation-drawer>
-
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
       <v-toolbar-title>Application</v-toolbar-title>
     </v-app-bar>
-
     <v-main>
       <router-view></router-view>
     </v-main>
@@ -52,9 +45,17 @@ export default {
       {path: '/about', name: 'About'},
       {path: '/echart', name: 'Echart'}, 
       {path: '/Reuse', name : "Reuse"}
-
     ]
   }),
+
+  created() {
+    window.addEventListener('beforeunload', this.handler)
+  },
+  methods: {
+    beforePageDestroyed:  () => {
+      console.log()
+    }
+  }
 }
 </script>
 

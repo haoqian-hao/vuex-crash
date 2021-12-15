@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const state = {
-    tasks: []
+    tasks: [],
+    tasksadded: 0
 };
 
 const getters={
@@ -9,18 +10,14 @@ const getters={
 
 
     getTasklength: (state) => {
-        // console.log(state.tasks) 
-        // return state.tasks.length;
         return state.tasks.length;
     },
 
     getCompleted: (state) => {return state.tasks.filter(task => task.completed).length}, 
     getRemaining: (state) => {return state.tasks.filter(task => !task.completed).length}, 
     getProgress (getters) {
-        // console.log(getters.getCompleted / getters.getTasklength * 100)
         return getters.getCompleted / getters.getTasklength * 100
-       
-      },
+    },
 
     checkUniqueTask:(state) => (title) => {
         const finded = (element) => element.title==title;
@@ -31,7 +28,6 @@ const getters={
 
 const actions = {
     fetchTasks({commit}) {
-        // console.log(localStorage.getItem("ta"))
         let tasks = localStorage.getItem("tasks");
         if (tasks!== null) {
             console.log("tasks loaded by localstorage")
@@ -45,25 +41,45 @@ const actions = {
                     commit('setTasks', response.data)                    
                 }
             )
-            // console.log(response.data)
-        }
+        } 
+    },
+    
+    async updateTask({commit}, task) {
+        const reposne = await axios.put(`http://localhost:5000/tasks/${task.id}`, task)
+        commit('updateTask', reposne)
     },
 
     async addTask({commit}, title) {
-        commit('addTask', {title: title})
+        const id = this.state.tasks.length + 1;
+        const task = {
+            "id": id,
+            "title": title,
+            "completed": false
+        }
+        await axios.post(`http://localhost:5000/tasks`, task)
+
+        commit('addTask', task)
     },
     
-    async removeTask({commit}, title) {
-        commit('removeTaks', title)
-    }
+    async removeTask({commit}, task) {
+        // console.log(task.id)
+        commit('removeTaks', task.id)
+        await axios.delete(`http://localhost:5000/tasks/${task.id}`);
+    },
+    
 };
 
 const mutations = {
     setTasks: (state, tasks) => state.tasks = tasks,
-    addTask: (state, task) => state.tasks.unshift(task),
-    removeTaks: (state, id) =>state.tasks = state.tasks.filter((ele) => ele.title !== id),
+    addTask: (state, task) => {
+        state.tasks.unshift(task)
+        state.tasksadded.unshift(task)
+    },
+    updateTask: (state, reposne)=>{console.log(state, reposne)},
+    removeTaks: (state, id) => {
+        state.tasks = state.tasks.filter((ele) => ele.id  !== id)
+    }
 };  
-
 
 export default {
     namespaced:true, 

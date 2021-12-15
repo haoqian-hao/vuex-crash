@@ -38,7 +38,8 @@ export default {
   name: "AddTask",
   data() {
       return {
-      title: ""
+        title: '', 
+
       };
   },
   computed: {
@@ -46,7 +47,7 @@ export default {
   },
 
   methods: {
-    ...mapActions('tasks', ["addTask"]),
+    ...mapActions('tasks', ['addTask']),
     onSubmit(e) {
   
     e.preventDefault();

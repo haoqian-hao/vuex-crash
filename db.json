@@ -1,0 +1,117 @@
+{
+  "lineDATA": [
+    {
+      "xAxis": {
+        "type": "category",
+        "boundaryGap": false,
+        "data": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ]
+      },
+      "yAxis": {
+        "type": "value"
+      },
+      "series": [
+        {
+          "data": [
+            820,
+            932,
+            901,
+            934,
+            1290,
+            1330,
+            1320
+          ],
+          "type": "line"
+        },
+        {
+          "data": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ],
+          "type": "line"
+        }
+      ]
+    },
+    {
+      "xAxis": {
+        "type": "category",
+        "boundaryGap": false,
+        "data": [
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun"
+        ]
+      },
+      "yAxis": {
+        "type": "value"
+      },
+      "series": [
+        {
+          "data": [
+            820,
+            932,
+            934,
+            1320,
+            1290,
+            1330,
+            901
+          ],
+          "type": "line"
+        },
+        {
+          "data": [
+            100,
+            100,
+            100,
+            100,
+            100,
+            100,
+            100
+          ],
+          "type": "line"
+        }
+      ]
+    }
+  ],
+  "tasks": [
+    {
+      "userId": 1,
+      "id": 5,
+      "title": "laboriosam mollitia et enim quasi adipisci quia provident illum",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 6,
+      "title": "qui ullam ratione quibusdam voluptatem quia omnis",
+      "completed": false
+    },
+    {
+      "id": 7,
+      "title": "illo expedita consequatur quia in",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": 9,
+      "title": "molestiae perspiciatis ipsa",
+      "completed": false
+    }
+  ]
+}

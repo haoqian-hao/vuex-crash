@@ -36,6 +36,7 @@
           <v-checkbox
             v-model="task.completed"
             :color="task.completed && 'grey' || 'primary'"
+            @click="handlechangecomplte(task)"
           >
             <template v-slot:label>
               <div
@@ -52,9 +53,9 @@
         <v-scroll-x-transition>
           <v-icon
             v-if="task.completed"
-            color="success"
+            @click="removeTask(task)"
           >
-            mdi-check
+            fas fa-trash
           </v-icon>
         </v-scroll-x-transition>
       </v-list-item>
@@ -86,8 +87,17 @@ export default {
     
     name: 'Tasks',
     methods: {
-      ...mapActions('tasks', ['fetchTasks', 'removeTask']),
-
+      ...mapActions('tasks', ['fetchTasks', 'updateTask', 'removeTask']),
+      handlechangecomplte(task) {
+        const upTask = {
+          id: task.id,
+          title: task.title, 
+          completed: task.completed
+        };
+        console.log(task)
+        console.log(upTask)
+        this.updateTask(upTask)
+      }
     },
 
     computed: {...mapGetters('tasks', ['allTasks', 'getTasklength', 'getCompleted', 'getRemaining', 'getProgress'])},
@@ -123,11 +133,6 @@ export default {
     padding-bottom: 0!important;
 }
 
-.success--text {
-    color: #4caf50 !important;
-    caret-color: #4caf50 !important;
-    padding-block-start: 0%;
-}
 
 .my-1 {
     margin-top: 4px!important;
